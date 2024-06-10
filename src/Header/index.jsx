@@ -1,11 +1,17 @@
+import styled from "styled-components"
 import LogoTambau from "./../assets/imagens/posadatambau_white.png"
 
-import "./index.css"
 
 export default function Header(){
     return(
-        <header>
+        <Cabecalho>
             <img src={LogoTambau} alt="Pousada Tambaú - logo" />
-        </header>
+        </Cabecalho>
     )
 }
+
+const Cabecalho = styled.header`
+    img{
+        background-color: aqua;
+    }
+`

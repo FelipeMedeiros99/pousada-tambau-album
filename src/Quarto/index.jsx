@@ -25,15 +25,29 @@ export default function Quarto({padrao}){
 
 const ContainerFotos = styled.div`
     display: flex;
-    max-width: 500px;
+    width: 70%;
     overflow-x: scroll;
     img{
         padding: 10px;
-        max-width: 500px;
+        width: 100%;
     }
 
 `
 
-const ContainerCategoria = styled.div`
+const ContainerCategoria = styled.div`  
+    display: flex;
+    position: relative;
+    background-color: cyan;
+    width: 100%;
+    max-width: 700px;
 
+    h1{
+        background-color: yellow;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+
+    }
 `

@@ -10,10 +10,16 @@ export default function Quarto({padrao}){
     return(
 
         <ContainerCategoria>
-
+            <div className="container-icone esquerda">
+                <ion-icon name="chevron-back-outline"></ion-icon>
+            </div>
+            <div className="container-icone direita">
+                <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+            
             <h1>Quarto {padrao}</h1>
+
             <ContainerFotos>
-                {/* <button>Esquerda</button> */}
                 {numeros.map((numero)=>(
                     <img id={`${padrao}${numero}`} src={`./assets/${padrao}/${padrao}${numero}.jpg`} alt="" />        
                     ))}
@@ -28,8 +34,41 @@ export default function Quarto({padrao}){
 
 
 const ContainerCategoria = styled.div`  
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    ion-icon{
+        font-size: 40px;
+        color: #0000009b;
+        background-color: #bdbdbd5c;
+        border-radius: 5px;
+    }
+    
+    .container-icone{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        z-index: 3;
+        top: 40%
+    }
+
+    .container-icone:hover{
+        cursor: pointer;
+    }
+        
+    .esquerda{
+        left: 30px;
+    }
+
+    .direita{
+        right: 30px;
+    }
+
 
     h1{
+        height: 50px;
+        background-color: red;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -48,12 +87,6 @@ const ContainerFotos = styled.div`
     position: relative;
     padding-top: 10px;
     padding-bottom: 10px;
-/* 
-    button{
-        height: 100%;
-        position: absolute;
-        z-index: 3;
-    } */
 
     img{
         padding: 10px;

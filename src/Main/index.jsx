@@ -14,7 +14,5 @@ export default function Main(){
     )
 }
 
-const Menu = styled.main`
-    padding: 30px;
-    
+const Menu = styled.main`   
 `

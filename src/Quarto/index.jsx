@@ -13,13 +13,10 @@ export default function Quarto({padrao}){
 
             <h1>Quarto {padrao}</h1>
             <ContainerFotos>
-                <>
-                    <ion-icon name="chevron-back-outline"></ion-icon>
-                    {numeros.map((numero)=>(
-                        <img id={`${padrao}${numero}`} src={`./assets/${padrao}/${padrao}${numero}.jpg`} alt="" />
-                        ))}
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                </>
+                {/* <button>Esquerda</button> */}
+                {numeros.map((numero)=>(
+                    <img id={`${padrao}${numero}`} src={`./assets/${padrao}/${padrao}${numero}.jpg`} alt="" />        
+                    ))}
             </ContainerFotos>
 
             <Informacoes padrao={padrao}>
@@ -45,20 +42,24 @@ const ContainerCategoria = styled.div`
 `
 
 const ContainerFotos = styled.div`
-    padding: 20px;
     display: flex;
     width: 100vw;
     overflow: scroll;
     position: relative;
-
-    ion-icon{
-        font-size: 30px;
-        color: red;
-    }
+    padding-top: 10px;
+    padding-bottom: 10px;
+/* 
+    button{
+        height: 100%;
+        position: absolute;
+        z-index: 3;
+    } */
 
     img{
+        padding: 10px;
         border-radius: 10px;
         width: 100vw;
         height: auto;
+        box-shadow: 0 0 5px
     }
 `

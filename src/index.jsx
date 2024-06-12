@@ -9,11 +9,14 @@ import "./assets/css/index.css"
 
 function App(){
     return(
-        <>
+        <>  
             <Header />
             <Main />
         </>
     )
 }
 
-const root = createRoot(document.querySelector('.root')).render(<App />)
+
+const root = createRoot(document.querySelector('.root'))
+
+root.render(<App />)

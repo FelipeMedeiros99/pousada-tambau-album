@@ -11,7 +11,4 @@ export default function Header(){
 }
 
 const Cabecalho = styled.header`
-    img{
-        background-color: aqua;
-    }
 `

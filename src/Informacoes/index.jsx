@@ -108,12 +108,4 @@ export default function Informacoes({padrao}){
 }
 
 const Ul = styled.ul`
-    width: 30%;
-    background-color: red;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    li{
-        display: flex;
-    }
 `

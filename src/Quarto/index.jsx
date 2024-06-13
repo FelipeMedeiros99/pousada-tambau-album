@@ -1,7 +1,4 @@
 import styled from "styled-components"
-import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
-import { IconContext } from "react-icons";
-import { useEffect, useState } from "react";
 
 import Informacoes from "../Informacoes"
 
@@ -23,7 +20,11 @@ export default function Quarto({padrao, contador, setContador}){
             return novoContador
         })
         
-        document.getElementById(`${padrao}${numeros[contador[padrao]]}`).scrollIntoView({behavior: 'smooth'})
+        document.getElementById(`${padrao}${numeros[contador[padrao]]}`).scrollIntoView({
+            behavior: 'smooth', 
+            block: "nearest",
+            inline: 'start'
+        })
     }
 
     
@@ -41,8 +42,8 @@ export default function Quarto({padrao, contador, setContador}){
                 </div>
                 
                 <ContainerFotos>
-                    {numeros.map((numero)=>(
-                            <img id={`${padrao}${numero}`} src={`./assets/${padrao}/${padrao}${numero}.jpg`} alt="" />        
+                    {numeros.map((numero, contador)=>(
+                            <img id={`${padrao}${numero}`} key={contador} src={`./assets/${padrao}/${padrao}${numero}.jpg`} alt="" />        
                         ))}
                 </ContainerFotos>
             </div>
@@ -56,7 +57,6 @@ export default function Quarto({padrao, contador, setContador}){
 
 
 const ContainerCategoria = styled.div`  
-    background-color: #37124d;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -71,8 +71,8 @@ const ContainerCategoria = styled.div`
     }
     
     .fotos{
-        background-color: yellow;
         position: relative;
+        overflow: hidden;
     }
 
     .container-icone{
@@ -83,7 +83,6 @@ const ContainerCategoria = styled.div`
         z-index: 3; 
         height: 100%;
         width: 40px;
-        background-color: red;
     }
 
     .container-icone:hover{
@@ -113,10 +112,10 @@ const ContainerCategoria = styled.div`
 
     @media (max-width: 547px) {
         .esquerda{
-            /* left: 15px; */
+            left: 15px;
         }
         .direita{
-            /* right:15px; */
+            right:15px;
         }
     }
 `

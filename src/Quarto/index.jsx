@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 import Informacoes from "../Informacoes"
+import { useEffect } from "react"
 
 
 
@@ -10,7 +11,7 @@ export default function Quarto({padrao, contador, setContador}){
     function Navegacao(valor, padrao){
         setContador((prevContador)=>{
             const novoContador = {...prevContador, [padrao]: prevContador[padrao] + valor}
-            
+            console.log(novoContador)
             if(novoContador[padrao] >= (numeros.length)){
                 return {...prevContador, [padrao]: 0}
             }else if (novoContador[padrao] < 0){
@@ -20,14 +21,15 @@ export default function Quarto({padrao, contador, setContador}){
             return novoContador
         })
         
+    }
+
+    useEffect(()=>{
         document.getElementById(`${padrao}${numeros[contador[padrao]]}`).scrollIntoView({
             behavior: 'smooth', 
             block: "nearest",
             inline: 'start'
         })
-    }
-
-    
+    }, [contador])
     
     return(
 

@@ -14,11 +14,19 @@ const Cabecalho = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
+    background-color: #96C5D7;
     width: 100vw;
     height: auto;
+    max-height: 200px;
     img{
         width: 100%;
-        max-width: 500px;
+        max-width: 300px;
+
+    }
+
+    @media (max-width: 500px){
+        img{
+            max-width: 200px
+        }
     }
 `

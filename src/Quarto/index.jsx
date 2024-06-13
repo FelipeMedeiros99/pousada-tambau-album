@@ -57,12 +57,12 @@ export default function Quarto({padrao, contador, setContador}){
 
 
 const ContainerCategoria = styled.div`  
+    box-shadow: 0px 1px 4px #0000007d;
     position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
     padding: 10px;
-
     ion-icon{
         font-size: 30px;
         color: #ffffff9b;
@@ -105,9 +105,8 @@ const ContainerCategoria = styled.div`
         justify-content: center;
         font-size: 40px;
         width: 100%;
-        font-family: "Roboto", sans-serif;
         font-weight: 400;
-        font-style: normal;
+        color: rgb(86 155 181);
     }
 
     @media (max-width: 547px) {
@@ -116,6 +115,10 @@ const ContainerCategoria = styled.div`
         }
         .direita{
             right:15px;
+        }
+
+        h1{
+            font-size: 30px;
         }
     }
 `
@@ -133,6 +136,6 @@ const ContainerFotos = styled.div`
         border-radius: 10px;
         width: 100%;
         height: auto;
-        box-shadow: 0 0 5px;
+        box-shadow: 0 0 3px;
     }
 `

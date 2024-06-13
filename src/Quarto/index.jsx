@@ -1,29 +1,51 @@
 import styled from "styled-components"
 import { FaChevronCircleRight, FaChevronCircleLeft } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import { useEffect, useState } from "react";
 
 import Informacoes from "../Informacoes"
 
-export default function Quarto({padrao}){
+
+
+export default function Quarto({padrao, contador, setContador}){
     const numeros = ['1', '2', '3', '4', '5', '6']
-   
+    
+    function Navegacao(valor, padrao){
+        setContador((prevContador)=>{
+            const novoContador = {...prevContador, [padrao]: prevContador[padrao] + valor}
+            
+            if(novoContador[padrao] >= (numeros.length)){
+                return {...prevContador, [padrao]: 0}
+            }else if (novoContador[padrao] < 0){
+                return {...prevContador, [padrao]: numeros.length-1} 
+            }
+
+            return novoContador
+        })
+        
+        document.getElementById(`${padrao}${numeros[contador[padrao]]}`).scrollIntoView({behavior: 'smooth'})
+    }
+
+    
+    
     return(
 
         <ContainerCategoria>
-            <div className="container-icone esquerda">
-                <ion-icon name="chevron-back-outline"></ion-icon>
-            </div>
-            <div className="container-icone direita">
-                <ion-icon name="chevron-forward-outline"></ion-icon>
-            </div>
-            
             <h1>Quarto {padrao}</h1>
-
-            <ContainerFotos>
-                {numeros.map((numero)=>(
-                    <img id={`${padrao}${numero}`} src={`./assets/${padrao}/${padrao}${numero}.jpg`} alt="" />        
-                    ))}
-            </ContainerFotos>
+            <div className="fotos">
+                <div className="container-icone esquerda" onClick={()=>Navegacao(-1, padrao)}>
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </div>
+                <div className="container-icone direita" onClick={()=>Navegacao(1, padrao)}>
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </div>
+                
+                <ContainerFotos>
+                    {numeros.map((numero)=>(
+                            <img id={`${padrao}${numero}`} src={`./assets/${padrao}/${padrao}${numero}.jpg`} alt="" />        
+                        ))}
+                </ContainerFotos>
+            </div>
 
             <Informacoes padrao={padrao}>
             </Informacoes>
@@ -42,18 +64,26 @@ const ContainerCategoria = styled.div`
     padding: 10px;
 
     ion-icon{
-        font-size: 40px;
+        font-size: 30px;
         color: #ffffff9b;
         background-color: #bdbdbd5c;
-        border-radius: 5px;
+        border-radius: 50px;
     }
     
+    .fotos{
+        background-color: yellow;
+        position: relative;
+    }
+
     .container-icone{
         position: absolute;
         display: flex;
         align-items: center;
-        z-index: 3;
-        top: 40%
+        justify-content: center;
+        z-index: 3; 
+        height: 100%;
+        width: 40px;
+        background-color: red;
     }
 
     .container-icone:hover{
@@ -61,11 +91,11 @@ const ContainerCategoria = styled.div`
     }
         
     .esquerda{
-        left: 30px;
+        left: 0px;
     }
 
     .direita{
-        right: 30px;
+        right: 0px;
     }
 
 
@@ -83,10 +113,10 @@ const ContainerCategoria = styled.div`
 
     @media (max-width: 547px) {
         .esquerda{
-            left: 15px;
+            /* left: 15px; */
         }
         .direita{
-            right:15px;
+            /* right:15px; */
         }
     }
 `

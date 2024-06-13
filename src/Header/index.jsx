@@ -11,4 +11,14 @@ export default function Header(){
 }
 
 const Cabecalho = styled.header`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+    width: 100vw;
+    height: auto;
+    img{
+        width: 100%;
+        max-width: 500px;
+    }
 `

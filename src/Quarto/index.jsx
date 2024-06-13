@@ -34,13 +34,16 @@ export default function Quarto({padrao}){
 
 
 const ContainerCategoria = styled.div`  
+    background-color: #37124d;
     position: relative;
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
+    padding: 10px;
 
     ion-icon{
         font-size: 40px;
-        color: #0000009b;
+        color: #ffffff9b;
         background-color: #bdbdbd5c;
         border-radius: 5px;
     }
@@ -67,32 +70,40 @@ const ContainerCategoria = styled.div`
 
 
     h1{
-        height: 50px;
-        background-color: red;
+        /* background-color: red; */
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 40px;
-        width: 100vw;
+        width: 100%;
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         font-style: normal;
+    }
+
+    @media (max-width: 547px) {
+        .esquerda{
+            left: 15px;
+        }
+        .direita{
+            right:15px;
+        }
     }
 `
 
 const ContainerFotos = styled.div`
     display: flex;
     width: 100vw;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
     position: relative;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
+    padding: 10px;
+    
     img{
         padding: 10px;
         border-radius: 10px;
-        width: 100vw;
+        width: 100%;
         height: auto;
-        box-shadow: 0 0 5px
+        box-shadow: 0 0 5px;
     }
 `

@@ -36,12 +36,12 @@ export default function Quarto({padrao, contador, setContador}){
         <ContainerCategoria>
             <h1>Quarto {padrao}</h1>
             <div className="fotos">
-                <div className="container-icone esquerda" onClick={()=>Navegacao(-1, padrao)}>
+                {/* <div className="container-icone esquerda" onClick={()=>Navegacao(-1, padrao)}>
                     <ion-icon name="chevron-back-outline"></ion-icon>
                 </div>
                 <div className="container-icone direita" onClick={()=>Navegacao(1, padrao)}>
                     <ion-icon name="chevron-forward-outline"></ion-icon>
-                </div>
+                </div> */}
                 
                 <ContainerFotos>
                     {numeros.map((numero, contador)=>(

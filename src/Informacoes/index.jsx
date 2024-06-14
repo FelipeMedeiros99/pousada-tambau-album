@@ -4,9 +4,6 @@ import { FaWifi, FaShower, FaBed, FaUmbrellaBeach } from "react-icons/fa";
 import { PiTelevisionSimple } from "react-icons/pi";
 import { FcFilingCabinet } from "react-icons/fc";
 import { MdTableRestaurant } from "react-icons/md";
-import {  } from "react-icons/fa";
-
-
 
 
 
@@ -128,7 +125,7 @@ export default function Informacoes({padrao}){
 }
 
 const Descricoes = styled.div`
-    padding: 20px 10px 0px 10px;
+    padding: 20px 35px 0px 35px;
 
     .descricao{
         text-align: justify;

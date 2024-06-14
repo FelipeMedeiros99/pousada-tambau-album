@@ -39,7 +39,7 @@ export default function Quarto({padrao, contador, setContador, elementoDeNavegac
         <ContainerCategoria>
             <h1>Quarto {padrao}</h1>
             <div className="fotos">
-                {/* <div className="container-icone esquerda" onClick={()=>navegacao(-1)}>
+                <div className="container-icone esquerda" onClick={()=>Navegacao(-1, padrao)}>
                     <ion-icon name="chevron-back-outline"></ion-icon>
                 </div>
                 <div className="container-icone direita" onClick={()=>navegacao(1)}>

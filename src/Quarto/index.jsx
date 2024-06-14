@@ -5,7 +5,7 @@ import Informacoes from "../Informacoes"
 
 
 
-export default function Quarto({padrao, contador, setContador, elementoDeNavegacao}){
+export default function Quarto({padrao, contador,   elementoDeNavegacao}){
     const numeros = ['1', '2', '3', '4', '5', '6']
 
     function addReferencia(elemento){
@@ -13,19 +13,18 @@ export default function Quarto({padrao, contador, setContador, elementoDeNavegac
     }
 
     async function navegacao(valor){
-        
-        await setContador((prevContador)=>{
-            const novoContador = {...prevContador, [padrao]: prevContador[padrao] + valor}
-            if(novoContador[padrao] >= (numeros.length)){
-                return {...prevContador, [padrao]: 0}
-            }else if (novoContador[padrao] < 0){
-                return {...prevContador, [padrao]: numeros.length-1} 
-            }
-
-            return novoContador
-        })
-        
-        elementoDeNavegacao.current[padrao][contador[padrao]]
+        const novoContador = {...contador.current}
+        novoContador[padrao] += valor
+        if(novoContador[padrao]>=numeros.length){
+            contador.current[padrao] = 0
+        }else if(novoContador[padrao] < 0){
+            contador.current[padrao] = numeros.length - 1
+        }
+        else{
+            contador.current = {...novoContador}
+        }
+  
+        elementoDeNavegacao.current[padrao][contador.current[padrao]]
         .scrollIntoView({
             behavior: 'smooth', 
             block: "nearest",
@@ -39,12 +38,12 @@ export default function Quarto({padrao, contador, setContador, elementoDeNavegac
         <ContainerCategoria>
             <h1>Quarto {padrao}</h1>
             <div className="fotos">
-                {/* <div className="container-icone esquerda" onClick={()=>Navegacao(-1, padrao)}>
+                <div className="container-icone esquerda" onClick={()=>navegacao(-1)}>
                     <ion-icon name="chevron-back-outline"></ion-icon>
                 </div>
                 <div className="container-icone direita" onClick={()=>navegacao(1)}>
                     <ion-icon name="chevron-forward-outline"></ion-icon>
-                </div>  */}
+                </div> 
                 
                 <ContainerFotos>
                     {numeros.map((numero, contador)=>(

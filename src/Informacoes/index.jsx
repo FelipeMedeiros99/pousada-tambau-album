@@ -133,6 +133,9 @@ const Descricoes = styled.div`
         margin-bottom: 30px;
     }
 
+    @media (max-width: 500px){
+        padding: 20px 15px 0px 15px;
+    }
 
 `
 
